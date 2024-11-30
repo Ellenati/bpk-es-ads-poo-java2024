@@ -1,46 +1,34 @@
 package exercicio02;
 
-/**
- * 2 - Defina uma classe Celular com atributos como marca, modelo,
- * e capacidadeBateria.
- * Adicione métodos para ligar e desligar o celular.
- */
 public class Celular {
-    private String marca;
-    private String modelo;
-    private String capacidadeBateria;
-    private Boolean ligado = false;
+    public String marca;
+    public String modelo;
+    public int capacidadeBateria;
+    public boolean ligado;
 
-    public Celular(String marca, String modelo, String capacidadeBateria) {
+    public Celular(String marca, String modelo, int capacidadeBateria) {
         this.marca = marca;
         this.modelo = modelo;
         this.capacidadeBateria = capacidadeBateria;
-    }
-
-    public String getMarca() {
-        return marca;
-    }
-
-    public String getModelo() {
-        return modelo;
-    }
-
-    public String getCapacidadeBateria() {
-        return capacidadeBateria;
-    }
-
-    public Boolean getLigado() {
-        return ligado;
-    }
-
-    public void ligar(){
-        System.out.println("Ligando celular...");
-        this.ligado = true;
-    }
-
-    public void desligar(){
-        System.out.println("Desligando celular");
         this.ligado = false;
+    }
+
+    public void ligar() {
+        if (!ligado) {
+            ligado = true;
+            System.out.println("O celular está ligado.");
+        } else {
+            System.out.println("O celular já está ligado.");
+        }
+    }
+
+    public void desligar() {
+        if (ligado) {
+            ligado = false;
+            System.out.println("O celular está desligado.");
+        } else {
+            System.out.println("O celular já está desligado.");
+        }
     }
 
     @Override
@@ -48,8 +36,9 @@ public class Celular {
         return "Celular{" +
                 "marca='" + marca + '\'' +
                 ", modelo='" + modelo + '\'' +
-                ", capacidadeBateria='" + capacidadeBateria + '\'' +
+                ", capacidadeBateria=" + capacidadeBateria +
                 ", ligado=" + ligado +
                 '}';
     }
+
 }
